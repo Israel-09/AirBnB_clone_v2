@@ -126,11 +126,11 @@ class HBNBCommand(cmd.Cmd):
         new_instance = HBNBCommand.classes[class_name]()
         for param in params:
             attr = param.split('=')[0]
-            if param.split('=')[1].count('.') == 1:
-                value = float(param.split('=')[1])
-                setattr(new_instance, attr, value)
-            elif param.split('=')[1].find('"') != -1:
+            if param.split('=')[1].find('"') != -1:
                 value = param.split('=')[1].replace('"', '')
+                setattr(new_instance, attr, value)
+            elif param.split('=')[1].count('.') == 1:
+                value = float(param.split('=')[1])
                 setattr(new_instance, attr, value)
             else:
                 try:
